@@ -62,13 +62,13 @@ brevity, we map the following references to the following classes or namespaces:
 
 - `HeaderInterface`: `Laminas\Http\Header\HeaderInterface`
 - `Headers`: `Laminas\Http\Headers`
-- `PluginClassLocator`: `Laminas\Loader\PluginClassLocator`
+- `HeaderLoader`: `Laminas\Http\HeaderLoader`
 
  Method signature                                                          | Description
 ---------------------------------------------------------------------------| -----------
  `static fromString(string $string) : Headers`                             | Parses a string for headers, and aggregates them, in order, a new `Headers` instance, primarily as strings until they are needed (they will be lazy loaded).
- `setPluginClassLoader(PluginClassLocator $pluginClassLoader) : self`      | Set an alternate implementation for the plugin class loader.
- `getPluginClassLoader() : PluginClassLocator`                             | Return an instance of a `PluginClassLocator`; lazy-load and inject map if necessary.
+ `setPluginClassLoader(HeaderLoader $pluginClassLoader) : self`            | Set an alternate implementation for the header plugin loader.
+ `getPluginClassLoader() : HeaderLoader`                                    | Return an instance of a `HeaderLoader`; lazy-load and inject map if necessary.
  `addHeaders(array\|Traversable $headers) : self`                          | Add many headers at once; expects an array (or `Traversable` object) of type/value pairs.
  `addHeaderLine(string $headerFieldNameOrLine, string $fieldValue) : self` | Add a raw header line, either as separate name and value arguments, or as a single string in the form `name: value` This method allows for lazy-loading in that the parsing and instantiation of a `HeaderInterface` implementation will be delayed until they are retrieved by either `get()` or `current()`.
  `addHeader(HeaderInterface $header) : self`                               | Add a header instance to the container; for raw values see `addHeaderLine()` and `addHeaders()`.

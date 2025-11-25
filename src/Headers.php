@@ -8,7 +8,6 @@ use Iterator;
 use Laminas\Http\Header\Exception;
 use Laminas\Http\Header\GenericHeader;
 use Laminas\Http\Header\MultipleHeaderInterface;
-use Laminas\Loader\PluginClassLocator;
 // phpcs:ignore SlevomatCodingStandard.Namespaces.UnusedUses.UnusedUse
 use ReturnTypeWillChange;
 use Traversable;
@@ -44,7 +43,7 @@ use function trim;
  */
 class Headers implements Countable, Iterator
 {
-    /** @var PluginClassLocator */
+    /** @var HeaderLoader */
     protected $pluginClassLoader;
 
     /** @var array key names for $headers array */
@@ -122,20 +121,20 @@ class Headers implements Countable, Iterator
     }
 
     /**
-     * Set an alternate implementation for the PluginClassLoader
+     * Set an alternate implementation for the Header plugin loader
      *
      * @return $this
      */
-    public function setPluginClassLoader(PluginClassLocator $pluginClassLoader)
+    public function setPluginClassLoader(HeaderLoader $pluginClassLoader)
     {
         $this->pluginClassLoader = $pluginClassLoader;
         return $this;
     }
 
     /**
-     * Return an instance of a PluginClassLocator, lazyload and inject map if necessary
+     * Return an instance of a HeaderLoader, lazyload and inject map if necessary
      *
-     * @return PluginClassLocator
+     * @return HeaderLoader
      */
     public function getPluginClassLoader()
     {
