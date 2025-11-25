@@ -478,7 +478,7 @@ class ClientTest extends TestCase
         $adapter
             ->expects($this->any())
             ->method('read')
-            ->will($this->returnValue($response->toString()));
+            ->willReturn($response->toString());
 
         $client->send($request);
     }
