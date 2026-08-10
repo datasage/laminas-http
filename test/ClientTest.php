@@ -472,9 +472,8 @@ class ClientTest extends TestCase
             ->with(Request::METHOD_GET, 'http://example.com/?foo=bar');
 
         $adapter
-            ->expects($this->any())
             ->method('read')
-            ->will($this->returnValue($response->toString()));
+            ->willReturn($response->toString());
 
         $client->send($request);
     }

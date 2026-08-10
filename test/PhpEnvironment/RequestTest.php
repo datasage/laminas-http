@@ -13,6 +13,7 @@ use PHPUnit\Framework\Attributes\DataProvider;
 use PHPUnit\Framework\Attributes\Group;
 use PHPUnit\Framework\TestCase;
 
+use function array_map;
 use function md5;
 use function parse_url;
 
@@ -301,7 +302,23 @@ class RequestTest extends TestCase
         $this->assertEquals($value, $header->getFieldValue($value));
     }
 
-    #[DataProvider('serverHeaderProvider')]
+    /**
+     * serverHeaderProvider without the header-value column.
+     *
+     * phpunit 12 reports a data set carrying more arguments than the test accepts as a
+     * warning, and CI runs phpunit with --fail-on-warning.
+     *
+     * @return list<array{0: array<string, string>, 1: string}>
+     */
+    public static function serverHeaderNameProvider(): array
+    {
+        return array_map(
+            static fn (array $set): array => [$set[0], $set[1]],
+            self::serverHeaderProvider()
+        );
+    }
+
+    #[DataProvider('serverHeaderNameProvider')]
     public function testRequestStringHasCorrectHeaderName(array $server, string $name): void
     {
         $_SERVER = $server;
