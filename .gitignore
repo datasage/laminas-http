@@ -3,8 +3,7 @@
 /.phpunit.cache
 /clover.xml
 /coveralls-upload.json
-/docs/html/
-/laminas-mkdoc-theme.tgz
-/laminas-mkdoc-theme/
+/.phpunit.cache/
+/psalm.xml
 /phpunit.xml
 /vendor/
