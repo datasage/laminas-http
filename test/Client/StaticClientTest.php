@@ -162,8 +162,7 @@ class StaticClientTest extends TestCase
 
         $reflectedClass = new ReflectionClass(HTTPClient::class);
         $property       = $reflectedClass->getProperty('client');
-        $property->setAccessible(true);
-        $client = $property->getValue();
+        $client         = $property->getValue();
 
         $rawRequest = $client->getLastRawRequest();
 
@@ -187,8 +186,7 @@ class StaticClientTest extends TestCase
 
         $reflectedClass = new ReflectionClass(HTTPClient::class);
         $property       = $reflectedClass->getProperty('client');
-        $property->setAccessible(true);
-        $client = $property->getValue();
+        $client         = $property->getValue();
 
         $rawRequest = $client->getLastRawRequest();
 
