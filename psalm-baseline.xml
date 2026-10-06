@@ -3561,10 +3561,6 @@
     <RiskyTruthyFalsyComparison>
       <code><![CDATA[getenv('TESTS_LAMINAS_HTTP_CLIENT_BASEURI')]]></code>
     </RiskyTruthyFalsyComparison>
-    <UnusedMethodCall>
-      <code><![CDATA[setAccessible]]></code>
-      <code><![CDATA[setAccessible]]></code>
-    </UnusedMethodCall>
   </file>
   <file src="test/Client/StaticTest.php">
     <ClassMustBeFinal>
