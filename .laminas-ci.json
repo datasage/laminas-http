@@ -1,4 +1,7 @@
 {
+    "ignore_php_platform_requirements": {
+        "8.6": true
+    },
     "exclude": [
         {"name": "Documentation Linting [8.2, locked]"},
         {"name": "MkDocs Linting [8.2, locked]"}
